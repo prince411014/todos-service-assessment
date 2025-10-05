@@ -1,9 +1,5 @@
 # 🚀 todos-service-assessment — DevOps & Cloud Security Engineer Project
 
-![Build Status](https://github.com/prince411014/todos-service-assessment/actions/workflows/ci-cd.yaml/badge.svg)
-![Docker Image](https://img.shields.io/badge/Docker%20Build-Passing-brightgreen)
-![License](https://img.shields.io/badge/license-MIT-blue)
-
 A **production-grade DevSecOps project** built for the *DevOps & Cloud Security Engineer Assessment*, demonstrating secure, automated delivery on **AWS** using **Terraform, EKS, Helm, Docker, and GitHub Actions**.
 
 ---
@@ -42,7 +38,6 @@ git clone https://github.com/prince411014/todos-service-assessment.git
 cd todos-service-assessment
 npm ci && npm start
 ```
-Visit: [http://localhost:3000/healthz](http://localhost:3000/healthz)
 
 ### Run tests
 ```bash
@@ -60,11 +55,11 @@ docker run -p 3000:3000 todos-service
 ## 🧰 Documentation
 | Section | Description |
 |----------|--------------|
-| [docs/architecture.md](docs/architecture.md) | Detailed architecture and EKS flow |
-| [SECTION_2_SCENARIOS.md](SECTION_2_SCENARIOS.md) | Scenario-based security responses |
-| [SECTION_3_QA.md](SECTION_3_QA.md) | Short-form technical Q&A |
-| [SECURITY_CONTROLS.md](SECURITY_CONTROLS.md) | Documented security measures |
-| [docs/security-scan-report.txt](docs/security-scan-report.txt) | Sample Trivy scan results |
+| [docs/architecture.md] | Detailed architecture and EKS flow |
+| [SECTION_2_SCENARIOS.md] | Scenario-based security responses |
+| [SECTION_3_QA.md] | Short-form technical Q&A |
+| [SECURITY_CONTROLS.md] | Documented security measures |
+| [docs/security-scan-report.txt] | Sample Trivy scan results |
 
 ---
 
