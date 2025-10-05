@@ -1,105 +1,88 @@
-# 🚀 todos-service-assessment — DevOps & Cloud Security Engineer Project
+# Todos Service – A Secure Cloud-Native Microservice
 
-![Build Status](https://github.com/prince411014/todos-service-assessment/actions/workflows/ci-cd.yaml/badge.svg)
-![Docker Image](https://img.shields.io/badge/Docker%20Build-Passing-brightgreen)
-![License](https://img.shields.io/badge/license-MIT-blue)
+**Author:** Prince Kumar — Cloud & DevOps Engineer (AWS | Azure | Terraform | Kubernetes)
 
-A **production-grade DevSecOps project** built for the *DevOps & Cloud Security Engineer Assessment*, demonstrating secure, automated delivery on **AWS** using **Terraform, EKS, Helm, Docker, and GitHub Actions**.
-
----
-
-## 🧩 Overview
-This repository showcases:
-- ✅ Secure **Node.js REST API** (`/healthz`, `/api/v1/todos`) with structured logs and metrics
-- 🧠 **CI/CD Pipeline** — build, test, scan, deploy with provenance
-- ☁️ **Terraform Infrastructure** — VPC, EKS, DynamoDB, Secrets Manager
-- 🛡️ **Security Hardening** — IRSA, RBAC, TLS, NetworkPolicies, non-root containers
-- 📈 **Observability** — Prometheus metrics, CloudWatch logs
+This project is part of my DevOps and Cloud Security practice, where I built a production-ready microservice using **Node.js**, **Express**, and **AWS DynamoDB**.  
+It demonstrates how I apply **Infrastructure as Code (Terraform)**, **container orchestration (Kubernetes on AWS EKS)**, and **security best practices** in real deployments.
 
 ---
 
-## 🧱 Architecture Diagram
-Below is the end-to-end system flow from commit to deployment.
+## 🔍 Quick Overview
 
-```mermaid
-graph TD
-  Dev[Developer Commit] --> CI[GitHub Actions Pipeline]
-  CI --> Build[Build + Test + ESLint + Audit]
-  Build --> Scan[Trivy Image Scan + Provenance Record]
-  Scan --> Deploy[Helm Deploy to AWS EKS]
-  Deploy --> ALB[ALB + ACM TLS]
-  ALB --> Pods[Todos Pods (IRSA + Non-root)]
-  Pods --> DynamoDB[(DynamoDB Table)]
-  CloudWatch[(Logs + Metrics)] --> Monitoring[Prometheus/Grafana]
-```
+- REST API to create and list todos  
+- Health check endpoint: `/healthz`  
+- Prometheus metrics: `/metrics`  
+- Logging: JSON-based (Pino)  
+- Infrastructure: Terraform + AWS EKS + IRSA + DynamoDB  
+- Deployment: Helm + Kubernetes manifests  
+- Security: IAM least privilege, KMS encryption, Trivy scans
 
 ---
 
-## ⚙️ Getting Started
+## 📊 Architecture Diagram
 
-### Run locally
+![Todos Service Architecture](A_flowchart_diagram_illustrates_the_architecture_o.png)
+
+The diagram above illustrates the complete DevOps workflow — from code commit to deployment.  
+It showcases the integration of **CI/CD pipelines**, **Terraform-based infrastructure**, and **Helm deployments** on **AWS EKS**.  
+The service securely interacts with **AWS DynamoDB** using **IRSA and IAM policies**, while **Trivy** ensures image security and **Prometheus** enables observability.
+
+---
+
+## ⚙️ How to Deploy
+
+You can deploy this project in your environment using the steps below:
+
 ```bash
+# Clone the repository
 git clone https://github.com/prince411014/todos-service-assessment.git
 cd todos-service-assessment
-npm ci && npm start
-```
-Visit: [http://localhost:3000/healthz](http://localhost:3000/healthz)
 
-### Run tests
-```bash
-npm test
-```
+# Deploy infrastructure
+terraform init
+terraform apply
 
-### Build Docker image
-```bash
-docker build -t todos-service .
-docker run -p 3000:3000 todos-service
+# Deploy the application
+helm install todos ./helm
 ```
 
----
-
-## 🧰 Documentation
-| Section | Description |
-|----------|--------------|
-| [docs/architecture.md](docs/architecture.md) | Detailed architecture and EKS flow |
-| [SECTION_2_SCENARIOS.md](SECTION_2_SCENARIOS.md) | Scenario-based security responses |
-| [SECTION_3_QA.md](SECTION_3_QA.md) | Short-form technical Q&A |
-| [SECURITY_CONTROLS.md](SECURITY_CONTROLS.md) | Documented security measures |
-| [docs/security-scan-report.txt](docs/security-scan-report.txt) | Sample Trivy scan results |
+This demonstrates an end-to-end DevOps workflow using Terraform and Helm.
 
 ---
 
-## 🧮 Security & Compliance Summary
+## 🔁 CI/CD Workflow
 
-| Category | Implementation |
-|-----------|----------------|
-| Secrets | AWS Secrets Manager & IRSA |
-| Image Security | Trivy scan (fail on High/Critical CVEs) |
-| IAM & Identity | IRSA + least-privilege IAM |
-| TLS | ACM-managed certificates |
-| Pod Security | Non-root user, readOnlyRootFS, drop NET_RAW |
-| Network | Private subnets + NetworkPolicies |
-| Logging | JSON logs to CloudWatch |
+This project supports a complete CI/CD pipeline automating build, test, and deployment stages.
 
----
+**Workflow Steps:**
+1. Linting & Unit Testing – Ensures code quality.  
+2. Docker Build & Push – Builds and pushes container image to ECR.  
+3. Terraform Plan & Apply – Provisions AWS infrastructure.  
+4. Helm Deploy – Deploys the application to EKS.  
+5. Security Scans – Uses Trivy for image vulnerability checks.
 
-## 🧠 Assessment Coverage
-
-| Section | Description |
-|----------|--------------|
-| **1. Hands-On** | Node.js REST API + CI/CD + Terraform IaC |
-| **2. Scenarios** | Incident response, secrets, zero-trust, supply chain, cost vs security |
-| **3. Short Form** | AWS SG vs NACL, IRSA, Terraform state, RBAC, scanners |
-| **Bonus** | Helm envs, Kyverno policy, SBOM, ZAP scan, Blue/Green deploys |
+These stages can be implemented with **Jenkins**, **GitHub Actions**, or **Azure DevOps**.
 
 ---
 
-## 👤 Author
-**Prince Kumar**  
-🔗 [LinkedIn Profile](https://www.linkedin.com/in/prince-kumar-9084a3145)  
-💬 Passionate about **Cloud | DevSecOps | Automation | Security-First Engineering**
+## 🧠 Key Features
+
+- **Infrastructure as Code:** Managed via Terraform  
+- **Secure Access:** IAM + IRSA for fine-grained permissions  
+- **Automation:** Helm for Kubernetes deployment  
+- **Observability:** Health checks and Prometheus metrics  
+- **Security:** KMS encryption + Trivy image scans  
 
 ---
 
-### 🏁 Outcome
-> A complete **DevSecOps implementation** with automation, observability, and security-by-design — built to reflect enterprise-grade cloud engineering standards.
+## 💬 Final Note
+
+I built this project to challenge myself to design, automate, and secure a complete cloud-native microservice from scratch.  
+It reflects my mindset as a DevOps engineer — **practical, security-focused, and always learning**.
+
+---
+
+📂 **Repository:** [https://github.com/prince411014/todos-service-assessment](https://github.com/prince411014/todos-service-assessment)  
+👨‍💻 **Author:** Prince Kumar  
+📧 **Contact:** prince.kumar22@outlook.com  
+📍 **Location:** Pune, India
