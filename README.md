@@ -18,9 +18,6 @@ It demonstrates how I apply **Infrastructure as Code (Terraform)**, **container 
 - Security: IAM least privilege, KMS encryption, Trivy scans
 
 ---
-
-## 📊 Architecture Diagram
-
 The diagram above illustrates the complete DevOps workflow — from code commit to deployment.  
 It showcases the integration of **CI/CD pipelines**, **Terraform-based infrastructure**, and **Helm deployments** on **AWS EKS**.  
 The service securely interacts with **AWS DynamoDB** using **IRSA and IAM policies**, while **Trivy** ensures image security and **Prometheus** enables observability.
