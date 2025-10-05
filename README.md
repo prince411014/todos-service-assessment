@@ -1,91 +1,85 @@
-# 🚀 todos-service-assessment — DevOps & Cloud Security Engineer Project
+🚀 todos-service-assessment — DevSecOps & Cloud Security Engineer Project
 
-A **production-grade DevSecOps project** built for the *DevOps & Cloud Security Engineer Assessment*, demonstrating secure, automated delivery on **AWS** using **Terraform, EKS, Helm, Docker, and GitHub Actions**.
+A production-grade DevSecOps solution built to demonstrate secure, automated delivery pipelines using AWS, Terraform, EKS, Helm, Docker, and GitHub Actions.
+This project reflects real-world enterprise cloud engineering standards — focusing on security, automation, observability, and scalability.
 
----
+🧩 Key Highlights
 
-## 🧩 Overview
-This repository showcases:
-- ✅ Secure **Node.js REST API** (`/healthz`, `/api/v1/todos`) with structured logs and metrics
-- 🧠 **CI/CD Pipeline** — build, test, scan, deploy with provenance
-- ☁️ **Terraform Infrastructure** — VPC, EKS, DynamoDB, Secrets Manager
-- 🛡️ **Security Hardening** — IRSA, RBAC, TLS, NetworkPolicies, non-root containers
-- 📈 **Observability** — Prometheus metrics, CloudWatch logs
+⚙️ End-to-End CI/CD Pipeline: Automated build, test, scan, and deploy workflow using GitHub Actions
 
----
+☁️ Infrastructure as Code (IaC): Provisioned AWS resources (VPC, EKS, DynamoDB, Secrets Manager) via Terraform
 
-## 🧱 Architecture Diagram
-Below is the end-to-end system flow from commit to deployment.
+🛡️ Security by Design: IRSA, RBAC, TLS via ACM, network isolation, and non-root containers
+
+📊 Observability: Centralised CloudWatch logs, Prometheus metrics, and health checks
+
+🧠 Supply Chain Security: Image scanning, provenance recording, and SBOM integration
+
+🚨 Incident Response & Compliance: Documented response strategies and security control measures
+
+🧱 Architecture Overview
+
+Commit to Deployment Flow
 
 graph TD
   Dev[Developer Commit] --> CI[GitHub Actions Pipeline]
-  CI --> Build[Build + Test + ESLint + Audit]
+  CI --> Build[Build + Test + Lint + Audit]
   Build --> Scan[Trivy Image Scan & Provenance Record]
   Scan --> Deploy[Helm Deploy to AWS EKS]
   Deploy --> ALB[ALB with ACM TLS]
-  ALB --> Pods[Todos Pods - IRSA & Non-root]
+  ALB --> Pods[Todos Pods (IRSA + Non-root)]
   Pods --> DynamoDB[(DynamoDB Table)]
   CloudWatch[(Logs & Metrics)] --> Monitoring[Prometheus / Grafana]
 
-
----
-
-## ⚙️ Getting Started
-
-### Run locally
-```bash
+🧮 Tech Stack
+Category	Tools / Technologies
+Cloud Provider	AWS (EKS, DynamoDB, Secrets Manager, ALB, CloudWatch)
+IaC	Terraform (Modular, Remote State, IAM Roles)
+CI/CD	GitHub Actions (Build → Scan → Deploy)
+Containerisation	Docker (Multi-stage, Non-root)
+Orchestration	Kubernetes + Helm Charts
+Security	Trivy, IRSA, RBAC, TLS (ACM), NetworkPolicies
+Monitoring	Prometheus, Grafana, CloudWatch
+Programming	Node.js (Express, Jest, Supertest, Pino)
+🧰 How to Run
+Local Development
 git clone https://github.com/prince411014/todos-service-assessment.git
 cd todos-service-assessment
 npm ci && npm start
-```
 
-### Run tests
-```bash
+Run Tests
 npm test
-```
 
-## 🧰 Documentation
-| Section | Description |
-|----------|--------------|
-| [docs/architecture.md] | Detailed architecture and EKS flow |
-| [SECTION_2_SCENARIOS.md] | Scenario-based security responses |
-| [SECTION_3_QA.md] | Short-form technical Q&A |
-| [SECURITY_CONTROLS.md] | Documented security measures |
-| [docs/security-scan-report.txt] | Sample Trivy scan results |
+📘 Documentation
+Section	Description
+[docs/architecture.md]	Detailed architecture and infrastructure flow
+[SECTION_2_SCENARIOS.md]	Security and incident response scenarios
+[SECTION_3_QA.md]	Short-form technical Q&A
+[SECURITY_CONTROLS.md]	Implemented security controls
+[docs/security-scan-report.txt]	Sample Trivy vulnerability scan report
+🔒 Security & Compliance Summary
+Category	Implementation
+Secrets Management	AWS Secrets Manager & IRSA
+Container Security	Trivy image scanning (fail on High/Critical CVEs)
+IAM & Roles	Least-privilege access + IAM Role for Service Account (IRSA)
+Network Security	Private subnets + Kubernetes NetworkPolicies
+Pod Security	Non-root user, read-only root FS, dropped NET_RAW
+Transport Security	TLS with AWS ACM certificates
+Logging & Monitoring	JSON logs via Pino → CloudWatch, Prometheus metrics
+🧠 Assessment Coverage
+Section	Description
+1. Hands-On Implementation	Node.js REST API + Terraform + Helm + CI/CD
+2. Scenario-Based Q&A	Incident response, secrets rotation, zero-trust, supply chain
+3. Short Technical Q&A	IRSA, Terraform state recovery, RBAC, network security
+Bonus	SBOM, Kyverno policies, ZAP scanning, Blue/Green deployments
+👨‍💻 Author — Prince Kumar
 
----
+Cloud & DevSecOps Engineer | AWS & Azure | Terraform | Kubernetes | CI/CD | Security Automation
 
-## 🧮 Security & Compliance Summary
+🔗 LinkedIn
 
-| Category | Implementation |
-|-----------|----------------|
-| Secrets | AWS Secrets Manager & IRSA |
-| Image Security | Trivy scan (fail on High/Critical CVEs) |
-| IAM & Identity | IRSA + least-privilege IAM |
-| TLS | ACM-managed certificates |
-| Pod Security | Non-root user, readOnlyRootFS, drop NET_RAW |
-| Network | Private subnets + NetworkPolicies |
-| Logging | JSON logs to CloudWatch |
+💬 Passionate about Cloud Engineering, Automation, and Building Secure Scalable Systems
 
----
+🏁 Outcome
 
-## 🧠 Assessment Coverage
-
-| Section | Description |
-|----------|--------------|
-| **1. Hands-On** | Node.js REST API + CI/CD + Terraform IaC |
-| **2. Scenarios** | Incident response, secrets, zero-trust, supply chain, cost vs security |
-| **3. Short Form** | AWS SG vs NACL, IRSA, Terraform state, RBAC, scanners |
-| **Bonus** | Helm envs, Kyverno policy, SBOM, ZAP scan, Blue/Green deploys |
-
----
-
-## 👤 Author
-**Prince Kumar**  
-🔗 [LinkedIn Profile](https://www.linkedin.com/in/prince-kumar-9084a3145)  
-💬 Passionate about **Cloud | DevSecOps | Automation | Security-First Engineering**
-
----
-
-### 🏁 Outcome
-> A complete **DevSecOps implementation** with automation, observability, and security-by-design — built to reflect enterprise-grade cloud engineering standards.
+A fully automated DevSecOps pipeline and infrastructure — showcasing end-to-end delivery, observability, and security-first design. Built to demonstrate enterprise-level DevOps and Cloud Security engineering excellence.
