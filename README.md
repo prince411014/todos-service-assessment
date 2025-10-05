@@ -44,14 +44,6 @@ npm ci && npm start
 npm test
 ```
 
-### Build Docker image
-```bash
-docker build -t todos-service .
-docker run -p 3000:3000 todos-service
-```
-
----
-
 ## 🧰 Documentation
 | Section | Description |
 |----------|--------------|
