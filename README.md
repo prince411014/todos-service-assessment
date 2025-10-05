@@ -21,17 +21,16 @@ This repository showcases:
 ## 🧱 Architecture Diagram
 Below is the end-to-end system flow from commit to deployment.
 
-```mermaid
 graph TD
   Dev[Developer Commit] --> CI[GitHub Actions Pipeline]
   CI --> Build[Build + Test + ESLint + Audit]
-  Build --> Scan[Trivy Image Scan + Provenance Record]
+  Build --> Scan[Trivy Image Scan & Provenance Record]
   Scan --> Deploy[Helm Deploy to AWS EKS]
-  Deploy --> ALB[ALB + ACM TLS]
-  ALB --> Pods[Todos Pods (IRSA + Non-root)]
+  Deploy --> ALB[ALB with ACM TLS]
+  ALB --> Pods[Todos Pods - IRSA & Non-root]
   Pods --> DynamoDB[(DynamoDB Table)]
-  CloudWatch[(Logs + Metrics)] --> Monitoring[Prometheus/Grafana]
-```
+  CloudWatch[(Logs & Metrics)] --> Monitoring[Prometheus / Grafana]
+
 
 ---
 
