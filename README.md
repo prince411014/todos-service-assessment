@@ -14,7 +14,7 @@ It demonstrates how I apply Infrastructure as Code (Terraform), container orches
 - Security: IAM least privilege, KMS encryption, Trivy scans
 
 ## 📊 Architecture Diagram
-![Todos Service Architecture](A_diagram_titled_"Todos_Service_—_Architecture"_il.png)
+![Todos Service Architecture](https://github.com/prince411014/todos-service-assessment/blob/main/Todos%20Service%20Architecture%20Flowchart.png)
 
 The diagram shows how the app interacts with AWS resources and integrates with the CI/CD pipeline.
 
