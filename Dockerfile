@@ -2,7 +2,8 @@
 FROM node:20-alpine AS build
 WORKDIR /usr/src/app
 COPY package.json package-lock.json* ./
-RUN npm ci --only=production || npm install
+RUN npm ci --omit=dev --unsafe-perm=true || npm install --omit=dev --unsafe-perm=true
+
 COPY . .
 RUN npm run build --silent 2>/dev/null || true
 
