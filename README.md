@@ -82,19 +82,7 @@ This repository showcases **practical, secure, and automated cloud delivery** as
 
 ## 🧮 Architecture Diagram
 
-```mermaid
-graph TD
-  Dev[Developer Commit] --> CI[GitHub Actions]
-  CI --> Scan[Trivy + ESLint + npm audit]
-  Scan --> Build[Docker Build + Tag GIT_SHA]
-  Build --> Deploy[Helm Deploy to EKS]
-  Deploy --> ALB[ALB + ACM TLS]
-  ALB --> Pods[Todos Pods (IRSA + Non-root)]
-  Pods --> DynamoDB[(DynamoDB Table)]
-  CloudWatch[(Logs + Metrics)] --> Monitoring[Prometheus/Grafana]
-```
 
----
 
 ## 🔐 Threat Model Summary
 
