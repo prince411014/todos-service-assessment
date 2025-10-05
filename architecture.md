@@ -2,16 +2,16 @@
 
 This document outlines the system design of the **todos-service-assessment** project.
 
-```mermaid
 graph TD
-  Dev[Developer Commit] --> CI[GitHub Actions]
-  CI --> Build[Build + Lint + Test + Scan]
-  Build --> Deploy[Helm Deploy to AWS EKS]
-  Deploy --> ALB[ALB + ACM TLS]
-  ALB --> Pods[App Pods (IRSA)]
-  Pods --> DynamoDB[(DynamoDB Table)]
-  Logs[CloudWatch Logs] --> Monitor[Prometheus / Grafana]
-```
+  Dev[Developer Commit] --> CI[GitHub Actions Pipeline]
+  CI --> Build[Build + Test + Lint + Security Audit]
+  Build --> Scan[Trivy Image Scan + Provenance Verification]
+  Scan --> Deploy[Helm Deployment to AWS EKS]
+  Deploy --> ALB[Application Load Balancer (ACM TLS Enabled)]
+  ALB --> Pods[Todos Service Pods (IRSA + Non-root User)]
+  Pods --> DynamoDB[(AWS DynamoDB Table)]
+  CloudWatch[(Centralised Logs & Metrics)] --> Monitoring[Prometheus / Grafana Dashboards]
+
 
 ### Components Explained
 - **CI/CD:** GitHub Actions automates build, lint, testing, scanning, and deployment.
