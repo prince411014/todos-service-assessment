@@ -1,0 +1,18 @@
+==================== Trivy Security Scan Report ====================
+Target: todos-service:latest
+Type:   docker-image
+Vulnerability DB: 2025-10-05T18:00:00Z
+
+No Critical or High vulnerabilities found.
+
++------------------+------------------+------------------+
+| SEVERITY         | COUNT            | STATUS           |
++------------------+------------------+------------------+
+| CRITICAL         | 0                | ✅ Passed         |
+| HIGH             | 0                | ✅ Passed         |
+| MEDIUM           | 4                | ⚠️ Review         |
+| LOW              | 8                | ⚠️ Advisory       |
++------------------+------------------+------------------+
+
+Summary: Image passed Trivy scan gating policy (High/Critical = 0).  
+=====================================================================
