@@ -1,7 +1,7 @@
 {
   "name": "todos-service",
   "version": "0.1.0",
-  "description": "Simple production-ready Node.js Todos REST API (health, list, create)",
+  "description": "Todos Service - production-ready Node.js REST API",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
@@ -19,6 +19,7 @@
   "devDependencies": {
     "jest": "^29.5.0",
     "supertest": "^6.4.0",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "eslint": "^8.40.0"
   }
 }

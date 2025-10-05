@@ -1,11 +1,28 @@
-# Todos Service
+# todos-service-devsecops
 
-Simple Node.js REST API implementing a basic Todos resource and health endpoint.
+Production-grade DevSecOps repository combining the Node.js Todos app, CI/CD pipeline, and secure infrastructure templates.
 
-## Run locally
-npm ci
-npm start
+See the top-level folders:
+- src/ (app)
+- helm/ (Helm chart for EKS)
+- terraform/ (IaC templates)
+- k8s/ (Kubernetes manifests)
+- .github/workflows/ (CI/CD pipeline)
 
-curl -s localhost:3000/healthz
-curl -s -X POST localhost:3000/api/v1/todos -H "content-type: application/json" -d '{"title":"first"}'
-curl -s localhost:3000/api/v1/todos
+## Quickstart (developer)
+1. Unzip and inspect files.
+2. Install deps and run locally:
+   ```bash
+   npm ci
+   npm start
+   ```
+3. Run tests:
+   ```bash
+   npm test
+   ```
+
+## CI/CD
+Pipeline in `.github/workflows/ci-cd.yaml` builds, tests, scans and deploys to EKS via Helm. See README_CICD.md for details.
+
+## Security
+See SECURITY_CONTROLS.md for security hardening, secrets, and TLS guidance.
