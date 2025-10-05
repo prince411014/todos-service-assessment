@@ -81,7 +81,7 @@ This repository showcases **practical, secure, and automated cloud delivery** as
 ---
 
 ## 🧮 Architecture Diagram
-
+https://github.com/prince411014/todos-service-assessment/blob/main/Todos%20Service%20Architecture%20Flowchart.png
 
 
 ## 🔐 Threat Model Summary
