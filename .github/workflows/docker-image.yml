@@ -39,7 +39,7 @@ jobs:
       # 4️⃣ Run Trivy Security Scan
       # -------------------------
       - name: Run Trivy scan
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@0.22.0
         with:
           image-ref: 'todos-service:latest'
           format: 'table'
@@ -59,7 +59,18 @@ jobs:
           path: trivy-report.txt
 
       # -------------------------
-      # 6️⃣ Verify Image Build (Optional)
+      # 6️⃣ Display Trivy Summary
+      # -------------------------
+      - name: Add Trivy scan to job summary
+        if: always()
+        run: |
+          echo "### 🧮 Trivy Security Scan Summary" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          cat trivy-report.txt >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+
+      # -------------------------
+      # 7️⃣ Verify Image Build (Optional)
       # -------------------------
       - name: Verify image build
         run: docker image ls todos-service:latest
