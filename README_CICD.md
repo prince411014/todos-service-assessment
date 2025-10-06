@@ -1,4 +1,4 @@
-# EKS + Helm CI/CD package for Todos Service (Recruiter-friendly)
+# EKS + Helm CI/CD package for Todos Service 
 
 This package contains a production-minded GitHub Actions pipeline that builds, tests, scans and deploys the `todos-service` to Amazon EKS using Helm. It follows the assessment requirements:
 
