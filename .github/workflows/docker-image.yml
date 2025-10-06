@@ -27,7 +27,12 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build             --file Dockerfile             --tag todos-service:latest             --build-arg NODE_ENV=production             --progress=plain             .
+          docker build \
+            --file Dockerfile \
+            --tag todos-service:latest \
+            --build-arg NODE_ENV=production \
+            --progress=plain \
+            .
 
       - name: Verify image build
         run: docker image ls todos-service:latest
