@@ -140,15 +140,16 @@ README.md      → Setup, Architecture, Security, Trade-offs
 ---
 
 ### Architecture (Mermaid)
-```mermaid
-graph TD
-  Dev[Developer Commit] --> CI[GitHub Actions]
-  CI --> Scan[Trivy + ESLint + npm audit]
-  Scan --> EKSDeploy[Helm to EKS]
-  EKSDeploy --> ALB[ALB + ACM TLS]
-  ALB --> Pods[Todos Pods (IRSA)]
-  Pods --> DynamoDB[(DynamoDB Table)]
-  CloudWatch[(Logs & Metrics)] --> Monitoring[Prometheus/Grafana]
+``` graph TD
+  Dev[Developer Commit] --> CI[GitHub Actions Pipeline]
+  CI --> Build[Build + Test + Lint + Security Audit]
+  Build --> Scan[Trivy Image Scan + Provenance Verification]
+  Scan --> Deploy[Helm Deployment to AWS EKS]
+  Deploy --> ALB[Application Load Balancer (ACM TLS Enabled)]
+  ALB --> Pods[Todos Service Pods (IRSA + Non-root User)]
+  Pods --> DynamoDB[(AWS DynamoDB Table)]
+  CloudWatch[(Centralised Logs & Metrics)] --> Monitoring[Prometheus / Grafana Dashboards]
+
 ```
 
 ---
