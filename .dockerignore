@@ -1,53 +1,31 @@
-# Node dependencies
 node_modules
 npm-debug.log
-
-# Environment files
-.env
-.env.local
-.env.development
-.env.test
-.env.production
-
-# Build output
+yarn-debug.log*
+yarn-error.log*
+.env*
 dist
 build
 coverage
-
-# System files
 .DS_Store
 Thumbs.db
-
-# Logs
 logs
 *.log
-
-# Git files
 .git
 .gitignore
 .gitattributes
-
-# Docker and CI
 Dockerfile
 .dockerignore
 .github/
-.gitlab/
 .vscode/
 .idea/
-
-# Temporary files
 *.swp
 *.swo
 *.tmp
 *.bak
-
-# Test-related
 __tests__/
 tests/
 jest.config.js
 *.spec.js
 *.test.js
-
-# Misc
 README.md
 LICENSE
