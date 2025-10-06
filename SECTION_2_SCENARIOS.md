@@ -1,5 +1,5 @@
 # ✅ SECTION_2_SCENARIOS.md
-## Section 2 — Scenario Questions (Recruiter-Friendly Answers)
+## Section 2 — Scenario Questions :
 
 ---
 
